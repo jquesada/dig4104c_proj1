@@ -33,24 +33,33 @@ var f=document.getElementById(data); // f is object of the planet
 ev.target.appendChild(f);
 
 var what=ev.target.textContent;
+var which=ev.target.id
 
-document.getElementById("div4").innerHTML="Image arrived at "+what;  
-
+document.getElementById("message").innerHTML=data+ " arrived at "+what+" "+which; 
+ 
+var element = document.getElementById("stuff");
+while (element.firstChild) {
+  element.removeChild(element.firstChild);
 }
-
-</script>
+}
 
 </script>
 </head>
 <body>
 
-<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
-  <img src="earth.gif" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="88">Place 1</div>
-<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)" >Place 2
-
+<div id="stuff">
+	<div id="coupons">
+		<img src="earth.gif" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="88" alt="drag1">
+		<img src="earth.gif" draggable="true" ondragstart="drag(event)" id="drag2" width="88" height="88" alt="drag2">
+		<img src="earth.gif" draggable="true" ondragstart="drag(event)" id="drag3" width="88" height="88" alt="drag3">
+	</div>
+	
+	<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">Place 1</div>
+	<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)" >Place 2</div>
+	<div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)">Place 3</div>
 </div>
-<div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)">Place 3</div>
-<div id="div4"></div>
+
+<div id="message"></div>
 
 
 </body>
