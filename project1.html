@@ -9,10 +9,10 @@
 -->
 
 <style type="text/css">
-#div1, #div2
+#membership1, #membership2
 {float:left; width:100px; height:100px; margin:10px;padding:10px;border:1px solid #aaaaaa;}
-#div3
-{float:left; width:100px; height:100px; margin:10px;padding:10px;border:3px solid #aaaaaa;}
+#membership3
+{float:left; width:100px; height:100px; margin:10px;padding:10px;border:1px solid #aaaaaa;}
 </style>
 <script>
 function allowDrop(ev)
@@ -32,11 +32,38 @@ var data=ev.dataTransfer.getData("Text"); //data is id of planet
 var f=document.getElementById(data); // f is object of the planet
 ev.target.appendChild(f);
 
-var what=ev.target.textContent;
-var which=ev.target.id
+var which=ev.target.id //DIV ID
 
-document.getElementById("message").innerHTML=data+ " arrived at "+what+" "+which; 
+//5$ COUPON CONDITONALS
+if (data == 'coupon5' && which == 'membership1'){
+	document.getElementById("message").innerHTML= "Congratulations - you have just signed up for three months of membership in the College Snack-Pack Group! Your first month's fee will be $14.00 and the remaining two months will cost $19.00.";
+}
+else if (data == 'coupon5' && which == 'membership2'){
+	document.getElementById("message").innerHTML= "Congratulations - you have just signed up for six months of membership in the Professional Bite-Me Group! Your first month's fee will be $34.00 and the remaining five months will cost $39.00.";
+}
+
+//10$ COUPON CONDITONALS
+if (data == 'coupon10' && which == 'membership1'){
+	document.getElementById("message").innerHTML= "Congratulations - you have just signed up for three months of membership in the College Snack-Pack Group! Your first month's fee will be $9.00 and the remaining two months will cost $19.00.";
+}
+else if (data == 'coupon10' && which == 'membership2'){
+	document.getElementById("message").innerHTML= "Congratulations - you have just signed up for six months of membership in the Professional Bite-Me Group! Your first month's fee will be $29.00 and the remaining five months will cost $39.00.";
+}
+
+//25$ COUPON CONDITONALS
+if (data == 'coupon25' && which == 'membership1'){
+	document.getElementById("message").innerHTML= "Congratulations - you have just signed up for three months of membership in the College Snack-Pack Group! Your first month will be FREE and the remaining two months will cost $19.00.";
+}
+else if (data == 'coupon25' && which == 'membership2'){
+	document.getElementById("message").innerHTML= "Congratulations - you have just signed up for six months of membership in the Professional Bite-Me Group! Your first month's fee will be $14.00 and the remaining five months will cost $39.00.";
+}
+
+//FREE MEMBERSHIP CONDITIONAL
+if (data == 'coupon5' && which == 'membership3' || data == 'coupon10' && which == 'membership3' || data == 'coupon25' && which == 'membership3'){
+	document.getElementById("message").innerHTML= "Congratulations - you have just signed up for one-year of membership in the Tasty Attorneys! Your membership is FREE. For using this coupon, we will throw in a bonus FREE parallegal!";
+}
  
+ //REMOVES EVERYTHING BUT MESSAGE ONCE A COUPON IS DRAGGED ONTO AN OPTION
 var element = document.getElementById("stuff");
 while (element.firstChild) {
   element.removeChild(element.firstChild);
@@ -49,14 +76,14 @@ while (element.firstChild) {
 
 <div id="stuff">
 	<div id="coupons">
-		<img src="earth.gif" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="88" alt="drag1">
-		<img src="earth.gif" draggable="true" ondragstart="drag(event)" id="drag2" width="88" height="88" alt="drag2">
-		<img src="earth.gif" draggable="true" ondragstart="drag(event)" id="drag3" width="88" height="88" alt="drag3">
+		<img src="earth.gif" draggable="true" ondragstart="drag(event)" id="coupon5" width="88" height="88" alt="5$ Off Coupon">
+		<img src="earth.gif" draggable="true" ondragstart="drag(event)" id="coupon10" width="88" height="88" alt="10$ Off Coupon">
+		<img src="earth.gif" draggable="true" ondragstart="drag(event)" id="coupon25" width="88" height="88" alt="25$ Off Coupon">
 	</div>
 	
-	<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">Place 1</div>
-	<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)" >Place 2</div>
-	<div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)">Place 3</div>
+	<div id="membership1" ondrop="drop(event)" ondragover="allowDrop(event)">Place 1</div>
+	<div id="membership2" ondrop="drop(event)" ondragover="allowDrop(event)" >Place 2</div>
+	<div id="membership3" ondrop="drop(event)" ondragover="allowDrop(event)">Place 3</div>
 </div>
 
 <div id="message"></div>
