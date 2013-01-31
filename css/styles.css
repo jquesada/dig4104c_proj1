@@ -1,0 +1,66 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body 
+{
+	background-color: #000;
+}
+#content
+{
+	width: 960px;
+	height: 1150px;
+	margin: 0px auto;
+}
+#header
+{
+	width: 960px;
+	height: 593px;
+	background-image: url('../img/vamp_header.png');
+}
+
+#stuff
+{
+	margin: 0px auto;
+	width: 855px;
+	height: 478px;
+	background-image: url('../img/stuff_background.jpg');
+}
+#visible
+{
+	text-align: center;
+	width: 729px;
+	margin: 0px auto;
+	padding-top: 35px;
+}
+
+#coupons
+{
+	margin-bottom: 20px;
+}
+#membership1, #membership2, #membership3 {float:left; width:210px; height:110px;
+margin:10px;padding:5px;border:1px dashed #878787;} 
+
+#message
+{
+	padding-top: 50px;
+	width: 800px;
+	margin: 0px auto;
+	text-align:center;
+}
+
+h1
+{
+	color: #8a0000;
+	font-size: 30px;
+	font-weight: bold;
+}
+.red
+{
+	color: #8a0000;
+	font-weight: bold;
+}
+
+.clear
+{
+	clear: both;
+}

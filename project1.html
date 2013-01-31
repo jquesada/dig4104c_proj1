@@ -1,93 +1,120 @@
 <!DOCTYPE HTML>
 <html>
-<head><title>JMM Drag and Drop</title>
+<head><title>Vampire Association of TransylFlorida - Justin Quesada</title>
 <!--
 	Example for DIG4104c
     Based on W3C example at
     http://www.w3schools.com/html/html5_draganddrop.asp
     M. Moshell - December 2012
 -->
-
 <style type="text/css">
-#membership1, #membership2
-{float:left; width:100px; height:100px; margin:10px;padding:10px;border:1px solid #aaaaaa;}
-#membership3
-{float:left; width:100px; height:100px; margin:10px;padding:10px;border:1px solid #aaaaaa;}
+	@import url("css/reset.css");
+	@import url("css/styles.css");
 </style>
+
 <script>
-function allowDrop(ev)
-{
-ev.preventDefault();
-}
+	function allowDrop(ev)
+	{
+	ev.preventDefault();
+	}
 
-function drag(ev)
-{
-ev.dataTransfer.setData("Text",ev.target.id);
-}
+	function drag(ev)
+	{
+	ev.dataTransfer.setData("Text",ev.target.id);
+	}
 
-function drop(ev)
-{
-ev.preventDefault();
-var data=ev.dataTransfer.getData("Text"); //data is id of planet
-var f=document.getElementById(data); // f is object of the planet
-ev.target.appendChild(f);
+	function drop(ev)
+	{
+	ev.preventDefault();
+	var data=ev.dataTransfer.getData("Text"); //data is id of planet
+	var f=document.getElementById(data); // f is object of the planet
+	ev.target.appendChild(f);
 
-var which=ev.target.id //DIV ID
+	var which=ev.target.id //DIV ID
 
-//5$ COUPON CONDITONALS
-if (data == 'coupon5' && which == 'membership1'){
-	document.getElementById("message").innerHTML= "Congratulations - you have just signed up for three months of membership in the College Snack-Pack Group! Your first month's fee will be $14.00 and the remaining two months will cost $19.00.";
-}
-else if (data == 'coupon5' && which == 'membership2'){
-	document.getElementById("message").innerHTML= "Congratulations - you have just signed up for six months of membership in the Professional Bite-Me Group! Your first month's fee will be $34.00 and the remaining five months will cost $39.00.";
-}
+	//5$ COUPON CONDITONALS
+	if (data == 'coupon5' && which == 'membership1'){
+		document.getElementById("message").innerHTML= "<h1>Congratulations!</h1>  You have just signed up for three months of membership in the College Snack-Pack Group! Your first month's fee will be $14.00 and the remaining two months will cost $19.00.";
+	}
+	else if (data == 'coupon5' && which == 'membership2'){
+		document.getElementById("message").innerHTML= "<h1>Congratulations!</h1> You have just signed up for six months of membership in the Professional Bite-Me Group! Your first month's fee will be $34.00 and the remaining five months will cost $39.00.";
+	}
 
-//10$ COUPON CONDITONALS
-if (data == 'coupon10' && which == 'membership1'){
-	document.getElementById("message").innerHTML= "Congratulations - you have just signed up for three months of membership in the College Snack-Pack Group! Your first month's fee will be $9.00 and the remaining two months will cost $19.00.";
-}
-else if (data == 'coupon10' && which == 'membership2'){
-	document.getElementById("message").innerHTML= "Congratulations - you have just signed up for six months of membership in the Professional Bite-Me Group! Your first month's fee will be $29.00 and the remaining five months will cost $39.00.";
-}
+	//10$ COUPON CONDITONALS
+	if (data == 'coupon10' && which == 'membership1'){
+		document.getElementById("message").innerHTML= "<h1>Congratulations!</h1> You have just signed up for three months of membership in the College Snack-Pack Group! Your first month's fee will be $9.00 and the remaining two months will cost $19.00.";
+	}
+	else if (data == 'coupon10' && which == 'membership2'){
+		document.getElementById("message").innerHTML= "<h1>Congratulations!</h1> You have just signed up for six months of membership in the Professional Bite-Me Group! Your first month's fee will be $29.00 and the remaining five months will cost $39.00.";
+	}
 
-//25$ COUPON CONDITONALS
-if (data == 'coupon25' && which == 'membership1'){
-	document.getElementById("message").innerHTML= "Congratulations - you have just signed up for three months of membership in the College Snack-Pack Group! Your first month will be FREE and the remaining two months will cost $19.00.";
-}
-else if (data == 'coupon25' && which == 'membership2'){
-	document.getElementById("message").innerHTML= "Congratulations - you have just signed up for six months of membership in the Professional Bite-Me Group! Your first month's fee will be $14.00 and the remaining five months will cost $39.00.";
-}
+	//25$ COUPON CONDITONALS
+	if (data == 'coupon25' && which == 'membership1'){
+		document.getElementById("message").innerHTML= "<h1>Congratulations!</h1> You have just signed up for three months of membership in the College Snack-Pack Group! Your first month will be FREE and the remaining two months will cost $19.00.";
+	}
+	else if (data == 'coupon25' && which == 'membership2'){
+		document.getElementById("message").innerHTML= "<h1>Congratulations!</h1> You have just signed up for six months of membership in the Professional Bite-Me Group! Your first month's fee will be $14.00 and the remaining five months will cost $39.00.";
+	}
 
-//FREE MEMBERSHIP CONDITIONAL
-if (data == 'coupon5' && which == 'membership3' || data == 'coupon10' && which == 'membership3' || data == 'coupon25' && which == 'membership3'){
-	document.getElementById("message").innerHTML= "Congratulations - you have just signed up for one-year of membership in the Tasty Attorneys! Your membership is FREE. For using this coupon, we will throw in a bonus FREE parallegal!";
-}
- 
- //REMOVES EVERYTHING BUT MESSAGE ONCE A COUPON IS DRAGGED ONTO AN OPTION
-var element = document.getElementById("stuff");
-while (element.firstChild) {
-  element.removeChild(element.firstChild);
-}
-}
-
+	//FREE MEMBERSHIP CONDITIONAL
+	if (data == 'coupon5' && which == 'membership3' || data == 'coupon10' && which == 'membership3' || data == 'coupon25' && which == 'membership3'){
+		document.getElementById("message").innerHTML= "<h1>Congratulations!</h1> You have just signed up for one-year of membership in the Tasty Attorneys! Your membership is FREE. For using this coupon, we will throw in a bonus FREE parallegal!";
+	}
+	 
+	 //REMOVES EVERYTHING BUT MESSAGE ONCE A COUPON IS DRAGGED ONTO AN OPTION
+	var element = document.getElementById("visible");
+	while (element.firstChild) {
+	  element.removeChild(element.firstChild);
+	}
+	}
 </script>
 </head>
 <body>
+<div id="content">
+	<div id="header"></div>
+	<div id="stuff">
+		<div id="visible">
+			<div id="coupons">
+				<p>
+					<img src="img/coupons.png" />
+				</p>
+				<p>
+					Drag one of the coupons onto the membership you are interested in joining below
+				</p>
+				<p>
+					<img src="img/coupon5.png" draggable="true" ondragstart="drag(event)" id="coupon5" alt="5$ Off Coupon">
+					<img src="img/coupon10.png" draggable="true" ondragstart="drag(event)" id="coupon10" alt="10$ Off Coupon">
+					<img src="img/coupon25.png" draggable="true" ondragstart="drag(event)" id="coupon25" alt="25$ Off Coupon">
+				</p>
+			</div>
 
-<div id="stuff">
-	<div id="coupons">
-		<img src="earth.gif" draggable="true" ondragstart="drag(event)" id="coupon5" width="88" height="88" alt="5$ Off Coupon">
-		<img src="earth.gif" draggable="true" ondragstart="drag(event)" id="coupon10" width="88" height="88" alt="10$ Off Coupon">
-		<img src="earth.gif" draggable="true" ondragstart="drag(event)" id="coupon25" width="88" height="88" alt="25$ Off Coupon">
-	</div>
-	
-	<div id="membership1" ondrop="drop(event)" ondragover="allowDrop(event)">Place 1</div>
-	<div id="membership2" ondrop="drop(event)" ondragover="allowDrop(event)" >Place 2</div>
-	<div id="membership3" ondrop="drop(event)" ondragover="allowDrop(event)">Place 3</div>
+			<p>
+				<img src="img/memberships.png" />
+			</p>
+			
+			<div id="membership1" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<span class="red">College Snack-Pack Group</span>
+				<br />Type A blood from starving College students
+				<br />3 month Membership
+				<br /><span class="red">$19.00 a month</span>
+			</div>
+			<div id="membership2" ondrop="drop(event)" ondragover="allowDrop(event)" >
+				<span class="red">Professional Bite-Me Group</span>
+				<br />All blood types and access to healthy, employed professionals
+				<br />6 month Membership
+				<br /><span class="red">$39.00 a month</span>
+			</div>
+			<div id="membership3" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<span class="red">Tasty Attorneys Group</span>
+				<br />Access to Attorneys
+				<br />One-Year Membership
+				<br /><span class="red">FREE</span>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<p id="message"> </p>
+	</div>	
 </div>
-
-<div id="message"></div>
-
 
 </body>
 </html>
