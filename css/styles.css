@@ -28,17 +28,17 @@ body
 #visible
 {
 	text-align: center;
-	width: 729px;
+	width: 775px;
 	margin: 0px auto;
-	padding-top: 35px;
+	padding-top: 20px;
 }
 
 #coupons
 {
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
-#membership1, #membership2, #membership3 {float:left; width:210px; height:110px;
-margin:10px;padding:5px;border:1px dashed #878787;} 
+#membership1, #membership2, #membership3 {float:left; width:230px; height:150px;
+margin:10px;padding:3px;border:1px dashed #878787; font-size: 12px;} 
 
 #message
 {
@@ -58,6 +58,7 @@ h1
 {
 	color: #8a0000;
 	font-weight: bold;
+	font-size: 14px;
 }
 
 .clear
